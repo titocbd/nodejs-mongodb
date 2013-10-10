@@ -1,0 +1,16 @@
+extends layout
+
+block content
+    h1= title
+    div.newemployee
+        form( method="post")
+            div
+                div
+                    span.label Role :
+                    input(type="text", name="role", id="editStudentRole")
+                div
+                    span.label Name :
+                    input(type="text", name="name", id="editStudentName")
+                div#editStudentSubmit
+                    input(type="submit", value="Save")
+        a(href="/")!= "Back to Student List"

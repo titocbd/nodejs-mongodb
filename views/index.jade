@@ -1,0 +1,19 @@
+extends layout
+
+block content
+    h1= title
+    #students
+        a(href="/student/new")!= "Add New Student"
+        - each student in students
+          div.student
+            div.id= student._id 
+            div.role= student.role 
+            div.name= student.name
+            div.created_at= student.created_at
+             
+                form( method="post", action="/student/:id/delete") 
+                    input(name="_id", type="hidden", value=student._id.toHexString()) 
+                    input(id="delete", value="X", type="submit")
+                form( method="get", action="/student/:id/edit") 
+                    input(name="_id", type="hidden", value=student._id.toHexString()) 
+                    input(id="edit", value="Edit", type="submit")
